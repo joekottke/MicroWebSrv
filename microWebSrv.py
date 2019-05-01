@@ -283,9 +283,9 @@ class MicroWebSrv :
     def _physPathFromURLPath(self, urlPath) :
         if urlPath == '/' :
             for idxPage in self._indexPages :
-            	physPath = self._webPath + '/' + idxPage
-            	if MicroWebSrv._fileExists(physPath) :
-            		return physPath
+                physPath = self._webPath + '/' + idxPage
+                if MicroWebSrv._fileExists(physPath) :
+                    return physPath
         else :
             physPath = self._webPath + urlPath
             if MicroWebSrv._fileExists(physPath) :
@@ -635,13 +635,13 @@ class MicroWebSrv :
                     return self.WriteResponse(200, headers, "text/html", "UTF-8", tmplResult)
                 except Exception as ex :
                     return self.WriteResponse( 500,
-    	                                       None,
-    	                                       "text/html",
-    	                                       "UTF-8",
-    	                                       self._execErrCtnTmpl % {
-    	                                            'module'  : 'PyHTML',
-    	                                            'message' : str(ex)
-    	                                       } )
+                                               None,
+                                               "text/html",
+                                               "UTF-8",
+                                               self._execErrCtnTmpl % {
+                                                    'module'  : 'PyHTML',
+                                                    'message' : str(ex)
+                                               } )
             return self.WriteResponseNotImplemented()
 
         # ------------------------------------------------------------------------
